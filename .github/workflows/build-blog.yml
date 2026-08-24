@@ -32,9 +32,8 @@ jobs:
         server: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASS }}
-        server-dir: /blog/
+        server-dir: /www/blog.dostupnayaipoteka.ru/
         local-dir: ./docs/
-        files-to-delete: ""
         exclude: |
           **/.git*
           **/.git*/**
