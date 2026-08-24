@@ -1,0 +1,17 @@
+{
+  "name": "blog-dostupnaya-ipoteka",
+  "version": "1.0.0",
+  "description": "Blog for dostupnayaipoteka.ru",
+  "main": "src/js/build.js",
+  "scripts": {
+    "build": "node src/js/build.js",
+    "test": "echo \"No tests yet\""
+  },
+  "keywords": [
+    "blog",
+    "ипотека",
+    "dostupnayaipoteka"
+  ],
+  "author": "Elena Molokova",
+  "license": "MIT"
+}

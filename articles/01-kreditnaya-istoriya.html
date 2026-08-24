@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Что банк скрывает: ошибки в кредитной истории есть у 70% - Доступная ипотека</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', 'Garamond', serif;
+            background: #080706;
+            color: #F2EFE8;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 320px;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 40px;
+            border-bottom: 2px solid #B8893E;
+            background: #120E0B;
+            margin-bottom: 40px;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 56px;
+            height: 56px;
+            background: #D4A85C;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #120E0B;
+        }
+
+        .header-text h1 {
+            font-size: 28px;
+            color: #D4A85C;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+
+        .header-text p {
+            font-size: 13px;
+            color: #B8893E;
+            letter-spacing: 1px;
+        }
+
+        /* Article */
+        article {
+            background: #24160E;
+            padding: 40px;
+            border: 1px solid #4A2F1E;
+            border-left: 4px solid #D4A85C;
+            margin-bottom: 40px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            color: #B8893E;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        article h1 {
+            font-size: 32px;
+            color: #D4A85C;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        article .hook {
+            font-size: 16px;
+            color: #E8C987;
+            font-style: italic;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        article .content {
+            font-size: 15px;
+            color: #F2EFE8;
+            line-height: 1.8;
+        }
+
+        article .content p {
+            margin-bottom: 16px;
+        }
+
+        article .content h2 {
+            font-size: 22px;
+            color: #D4A85C;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        article .content h3 {
+            font-size: 18px;
+            color: #E8C987;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        article .content ul,
+        article .content ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        article .content li {
+            margin-bottom: 8px;
+        }
+
+        .contact-block {
+            background: #2B1810;
+            padding: 24px;
+            border: 1px solid #4A2F1E;
+            border-left: 4px solid #D4A85C;
+            margin-top: 32px;
+            border-radius: 2px;
+        }
+
+        .contact-block h3 {
+            font-size: 14px;
+            color: #D4A85C;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .contact-block p {
+            font-size: 14px;
+            color: #F2EFE8;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-links a {
+            padding: 10px;
+            background: #24160E;
+            color: #D4A85C;
+            text-decoration: none;
+            border-radius: 2px;
+            font-size: 14px;
+            border-left: 2px solid #D4A85C;
+            transition: all 0.2s;
+        }
+
+        .contact-links a:hover {
+            color: #E8C987;
+            background: #2B1810;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: linear-gradient(180deg, #2B1810 0%, #24160E 100%);
+            padding: 40px 28px;
+            border-left: 2px solid #4A2F1E;
+            border-radius: 2px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 32px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 14px;
+            color: #D4A85C;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #4A2F1E;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .categories {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .categories a {
+            padding: 10px 12px;
+            background: #24160E;
+            color: #F2EFE8;
+            text-decoration: none;
+            border-radius: 2px;
+            font-size: 14px;
+            transition: all 0.2s;
+            display: block;
+        }
+
+        .categories a:hover,
+        .categories a.active {
+            background: #D4A85C;
+            color: #120E0B;
+        }
+
+        .consultation-box {
+            background: #2B1810;
+            padding: 24px;
+            border: 1px solid #4A2F1E;
+            border-left: 4px solid #D4A85C;
+            border-radius: 2px;
+            margin-bottom: 32px;
+        }
+
+        .consultation-box h3 {
+            font-size: 14px;
+            color: #D4A85C;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            border: none;
+            padding-bottom: 0;
+        }
+
+        .consultation-box p {
+            font-size: 14px;
+            color: #F2EFE8;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .consultation-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .consultation-links a {
+            font-size: 14px;
+            color: #D4A85C;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .consultation-links a:hover {
+            color: #E8C987;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .social-links a {
+            padding: 10px;
+            background: #24160E;
+            color: #F2EFE8;
+            text-decoration: none;
+            border-radius: 2px;
+            font-size: 14px;
+            border-left: 2px solid #D4A85C;
+            transition: all 0.2s;
+        }
+
+        .social-links a:hover {
+            background: #2B1810;
+            color: #D4A85C;
+        }
+
+        /* Footer */
+        footer {
+            padding: 32px 40px;
+            border-top: 1px solid #4A2F1E;
+            background: #120E0B;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo-icon {
+            width: 48px;
+            height: 48px;
+            background: #D4A85C;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #120E0B;
+        }
+
+        .footer-logo span {
+            font-size: 13px;
+            color: #B8893E;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: #B8893E;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+            }
+
+            article h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="logo">D</div>
+            <div class="header-text">
+                <h1>ДОСТУПНАЯ ИПОТЕКА</h1>
+                <p>ЭКСПЕРТНЫЙ БЛОГ</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Main Content -->
+        <main class="main-content">
+            <article>
+                <div class="article-meta">
+                    <span>📋 Кредитная история</span>
+                    <span>23 августа 2026</span>
+                </div>
+
+                <h1>Что банк скрывает: ошибки в кредитной истории есть у 70%</h1>
+
+                <p class="hook">Как найти и исправить ошибки в КИ за 5 дней</p>
+
+                <div class="content">
+                    <p>Ошибки в кредитной истории — частое явление, но мало кто проверяет её перед подачей заявки на ипотеку. Банк видит то же, что видите вы, если вы когда-либо заказывали свой отчёт. Но если ошибка есть, она может стоить вам сделки.</p>
+
+                    <p>По данным НБКИ, около 70% кредитных историй содержат ошибки. Некоторые из них серьёзные, другие можно исправить быстро. Главное — знать, где их искать и как действовать.</p>
+
+                    <h2>Откуда берутся ошибки в КИ</h2>
+
+                    <p>Ошибки могут появиться по разным причинам:</p>
+
+                    <ul>
+                        <li><strong>Техническая ошибка банка</strong> — платёж не прошёл правильно, но в системе записался как просрочка</li>
+                        <li><strong>Мошенничество</strong> — кредит оформлен на вас, но вы не знали</li>
+                        <li><strong>Задержка информации</strong> — информация попадает в бюро с задержкой 30-45 дней</li>
+                        <li><strong>Дублирование записей</strong> — один договор учтён дважды</li>
+                        <li><strong>Неправильная фамилия или адрес</strong> — путаница с однофамильцами</li>
+                    </ul>
+
+                    <h2>Как проверить свою кредитную историю бесплатно</h2>
+
+                    <p>Вы имеете право получить бесплатный отчёт 1 раз в год от каждого бюро. Есть три основных бюро:</p>
+
+                    <ul>
+                        <li><strong>НБКИ</strong> (Национальное бюро кредитных историй) — запрос через https://nbki.ru</li>
+                        <li><strong>ОКБ</strong> (Объединённое кредитное бюро) — запрос через https://okb.ru</li>
+                        <li><strong>Скоринг Бюро</strong> — запрос через https://scorer.ru</li>
+                    </ul>
+
+                    <p>Рекомендую проверить все три. На это потребуется 5-7 рабочих дней.</p>
+
+                    <h2>Пошаговая инструкция: как исправить ошибку</h2>
+
+                    <ol>
+                        <li><strong>Получить выписку</strong> из кредитного бюро (подать заявление, ждать 5-7 дней)</li>
+                        <li><strong>Найти ошибку</strong> в отчёте (сравнить с вашими банковскими выписками)</li>
+                        <li><strong>Собрать документы</strong> — копии платёжных документов, договоров, расписок</li>
+                        <li><strong>Подать заявление в бюро</strong> о неточности (письмо + документы)</li>
+                        <li><strong>Подать претензию в банк</strong> (если ошибка его вины)</li>
+                        <li><strong>Дождаться проверки</strong> — обычно 30 дней</li>
+                        <li><strong>Получить результат</strong> — ошибка удалена или отклонено</li>
+                    </ol>
+
+                    <h2>Совет от брокера-адвоката</h2>
+
+                    <p>Если просрочка или ошибка совсем свежая (менее 30 дней), не спешите подавать заявку на ипотеку. Дайте банкам время обновить информацию. Обычно требуется 45-60 дней, чтобы информация распространилась по всем системам.</p>
+
+                    <p>Если же ошибка старая (больше 3 месяцев), она уже повредила вашему рейтингу. Действуйте немедленно.</p>
+
+                    <h2>Чек-лист перед подачей заявки на ипотеку</h2>
+
+                    <ol>
+                        <li>☐ Получил выписку из всех трёх бюро (НБКИ, ОКБ, Скоринг Бюро)</li>
+                        <li>☐ Проверил все суммы, даты, сроки платежей</li>
+                        <li>☐ Нашел ошибки (если они есть)</li>
+                        <li>☐ Подал заявление в бюро на исправление</li>
+                        <li>☐ Получил подтверждение от бюро</li>
+                        <li>☐ Дождался обновления истории (5-30 дней в зависимости от ошибки)</li>
+                        <li>☐ Только после этого подаю заявку на ипотеку</li>
+                    </ol>
+
+                    <p><em>Статья подготовлена на основе материалов НБКИ, ОКБ, Скоринг Бюро и личного опыта консультирования более 500 клиентов по вопросам кредитной истории.</em></p>
+                </div>
+
+                <!-- Contact Block -->
+                <div class="contact-block">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="elena-photo-main.jpeg" alt="Елена Молокова" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #D4A85C; object-fit: cover;">
+                        <h4 style="font-size: 16px; color: #D4A85C; margin-top: 12px; font-weight: 700;">Елена Молокова</h4>
+                        <p style="font-size: 12px; color: #E8C987; margin-top: 4px;">Консультант по ипотеке</p>
+                    </div>
+                    <h3>Нужна консультация?</h3>
+                    <p>Помогу вам разобраться с кредитной историей, найти ошибки и подготовиться к ипотеке.</p>
+                    <div class="contact-links">
+                        <a href="https://t.me/MolokovaBot">👉 Telegram</a>
+                        <a href="https://max.ru/id263101640599_3_bot">👉 Max</a>
+                        <a href="mailto:nev.fk@bk.ru">📧 Email</a>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Categories -->
+            <div class="sidebar-section">
+                <h3>Категории</h3>
+                <div class="categories">
+                    <a href="#" class="active">📋 Кредитная история</a>
+                    <a href="#">✅ Одобрение и отказы</a>
+                    <a href="#">🏠 Новостройка</a>
+                    <a href="#">💰 Рефинансирование</a>
+                    <a href="#">👨‍👩‍👧 Программы ипотеки</a>
+                    <a href="#">🛡️ Страхование</a>
+                </div>
+            </div>
+
+            <!-- Consultation -->
+            <div class="sidebar-section consultation-box">
+                <h3>Нужна консультация?</h3>
+                <p>Свяжитесь со мной, я разберу вашу ситуацию и помогу найти оптимальный вариант ипотеки.</p>
+                <div class="consultation-links">
+                    <a href="https://t.me/MolokovaBot">👉 Telegram</a>
+                    <a href="https://max.ru/id263101640599_3_bot">👉 Max</a>
+                    <a href="mailto:nev.fk@bk.ru">📧 Email</a>
+                </div>
+            </div>
+
+            <!-- Social Networks -->
+            <div class="sidebar-section">
+                <h3>Мои соц. сети</h3>
+                <div class="social-links">
+                    <a href="https://t.me/dostupnayaipoteka">📱 TG: dostupnayaipoteka</a>
+                    <a href="https://t.me/Molokova_pro">📱 TG: Molokova_pro</a>
+                    <a href="https://max.ru/dostupnayaipoteka">💬 MAX-канал</a>
+                    <a href="https://vk.com/dostupnayaipoteka">▪️ ВКонтакте</a>
+                    <a href="https://youtube.com/c/dostupnayaipoteka">📹 YouTube</a>
+                    <a href="https://instagram.com/molokova_ipoteka">📸 Instagram</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="footer-logo-icon">D</div>
+                <span>Доступная ипотека</span>
+            </div>
+            <div class="footer-copy">© 2026 Все права защищены.</div>
+        </div>
+    </footer>
+</body>
+</html>

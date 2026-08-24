@@ -1,0 +1,38 @@
+name: Build Blog
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'articles/latest.txt'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build blog
+      run: node src/js/build.js
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        if git diff --quiet --cached; then
+          echo "No changes to commit"
+        else
+          git commit -m "🚀 Новая статья опубликована"
+          git push
+        fi
