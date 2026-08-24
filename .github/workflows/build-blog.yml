@@ -1,14 +1,15 @@
-name: Build Blog
+name: Build and Deploy Blog
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'articles/latest.txt'
+      - 'articles/**'
+      - 'src/**'
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,14 +26,28 @@ jobs:
     - name: Build blog
       run: node src/js/build.js
 
-    - name: Commit and push changes
+    - name: Deploy to FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USER }}
+        password: ${{ secrets.FTP_PASS }}
+        server-dir: /blog/
+        local-dir: ./docs/
+        files-to-delete: ""
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+
+    - name: Commit build changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add -A
+        git add docs/
         if git diff --quiet --cached; then
           echo "No changes to commit"
         else
-          git commit -m "🚀 Новая статья опубликована"
+          git commit -m "🚀 Блог обновлён"
           git push
         fi
